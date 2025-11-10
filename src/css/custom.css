@@ -1,0 +1,58 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Primary color - adjust these values to change the main theme color */
+  --ifm-color-primary: #7456fd;
+  --ifm-color-primary-dark: #3d019f;
+  --ifm-color-primary-darker: #3d019f;
+  --ifm-color-primary-darkest: #02032f;
+  --ifm-color-primary-light: #7e7cfb;
+  --ifm-color-primary-lighter: #7e7cfb;
+  --ifm-color-primary-lightest: #7e7cfb;
+
+  /* Code block styling */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Navbar colors */
+  --ifm-navbar-background-color: var(--ifm-color-primary-darkest);
+  --ifm-navbar-link-color: #fff;
+  --ifm-navbar-link-hover-color: rgba(255, 255, 255, 0.8);
+
+  /* Footer colors */
+  --ifm-footer-background-color: #242526;
+
+  /* Other customizable colors */
+  --ifm-background-color: #ffffff;
+  --ifm-font-color-base: #1c1e21;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #7456fd;
+  --ifm-color-primary-dark: #3d019f;
+  --ifm-color-primary-darker: #3d019f;
+  --ifm-color-primary-darkest: #02032f;
+  --ifm-color-primary-light: #7e7cfb;
+  --ifm-color-primary-lighter: #7e7cfb;
+  --ifm-color-primary-lightest: #7e7cfb;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Dark mode background */
+  --ifm-background-color: #18191a;
+  --ifm-font-color-base: #e4e6eb;
+}
+
+/* Custom styles for SDN Launch Control */
+.hero--primary {
+  background: linear-gradient(
+    135deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary) 100%
+  );
+}

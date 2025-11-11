@@ -16,7 +16,6 @@ SDN Launch Control provides:
 ## Quick Links
 
 - [Installation Guide](./getting-started/installation.md) - Get started with installation
-- [Quick Start](./getting-started/quick-start.md) - 5-minute setup guide
 - [Examples](./examples/basic-setup.md) - Step-by-step tutorials
 - [Architecture](./guides/architecture.md) - System architecture overview
 

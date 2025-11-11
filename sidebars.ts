@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -16,30 +16,25 @@ const sidebars: SidebarsConfig = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
     {
-      type: 'category',
-      label: 'Getting Started',
+      type: "category",
+      label: "Getting Started",
+      items: ["getting-started/prerequisites", "getting-started/installation"],
+    },
+    {
+      type: "category",
+      label: "Examples",
       items: [
-        'getting-started/prerequisites',
-        'getting-started/installation',
-        'getting-started/quick-start',
+        "examples/basic-setup",
+        "examples/advanced-network-configuration",
       ],
     },
     {
-      type: 'category',
-      label: 'Examples',
+      type: "category",
+      label: "Guides",
       items: [
-        'examples/basic-setup',
-        'examples/network-configuration',
-        'examples/controller-setup',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Guides',
-      items: [
-        'guides/architecture',
-        'guides/model-management',
-        'guides/advanced-configuration',
+        "guides/architecture",
+        "guides/model-management",
+        "guides/advanced-configuration",
       ],
     },
   ],

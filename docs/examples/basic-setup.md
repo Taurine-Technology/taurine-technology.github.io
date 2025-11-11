@@ -1,89 +1,78 @@
 # Basic Setup Example
 
-This example walks through setting up SDN Launch Control for a simple network topology.
+This example walks through setting up SDN Launch Control for a simple network topology using a Raspberry Pi as a switch although the installation process is largly similar between devices. Consult the diagram below to follow along. All IP Addresses and details used in the example are drawn from this diagram.
 
 ## Network Topology
 
-```
-[Router] -- [Switch] -- [Access Point]
-              |
-         [SDN Controller]
-```
+The final outcome of this guide will be the network seen below. The server @ 10.10.10.10 is running SDN Launch Control, the switch at 10.10.10.6 is a Raspberry Pi with 2 USB to Ethernet Adapters.
+
+![Basic Network Diagram](/img/diagrams/basic-network-diagram.png)
+
+## Hardware
+
+In this example the Controller and API are running on the same server. To do this you need a minimum of 16GB of RAM.
+
+The Raspbbery Pi will be configured as follows:
+
+![Basic Network Diagram](/img/hardware/raspberry-pi-ports.png)
 
 ## Step 1: Install Open vSwitch
 
-1. Navigate to **Switches** in the UI
-2. Click **Install OVS on a Switch**
-3. Fill in the form:
+1. Navigate to **Switches** in the UI at `http://<SERVER_IP_ADDRESS>:3000/devices/switches`
+2. Click the **+ Add Switch** button
+3. Fill in the form, nothing the following important fields:
 
-   - **Device Name**: `switch-01`
-   - **IP Address**: `192.168.1.10`
-   - **SSH Username**: `admin`
-   - **SSH Key**: Upload your SSH private key
+   - **API URL**: `http://10.10.10.10:8000` - this is the IP address of the server running SDN Launch Control.
+   - **Is Rapberry Pi?**: select this if your switch is a Raspberry Pi.
 
-4. Click **Install**
+   ![Install Open vSwitch form](/img/screenshots/switch-install-form.png)
+
+4. Click **Install OVS**
 
 The system will:
 
-- Connect to the device via SSH
-- Install Open vSwitch using Ansible
-- Configure OVS for OpenFlow
+- Configure OVS on the target device
+- Install Docker on the target device
+- Set up a device resource management script
 
 ## Step 2: Set Up SDN Controller
 
-1. Navigate to **Controllers** in the UI
-2. Click **Set Up an SDN Controller**
-3. Choose controller type: **OpenDaylight**
-4. Fill in the form:
+1. Navigate to **Controllers** in the UI at `http://<SERVER_IP_ADDRESS>:3000/devices/controllers`
+2. Click **+ Install Controller**
+3. Fill in the form:
 
-   - **Controller Name**: `odl-controller-01`
-   - **IP Address**: `192.168.1.20`
-   - **Port**: `6653` (default OpenFlow port)
+   ![Install Controller form](/img/screenshots/install-controller-form.png)
 
-5. Click **Install**
+4. Click **Install Controller**
+
+The system will:
+
+- Install Docker on the target device
+- Set up an ODL SDN Controller in a Docker container
 
 ## Step 3: Create Bridge
 
 1. Navigate to **Switches** → Select your switch
-2. Scroll to **Bridge Details**
-3. Click **Add Bridge**
-4. Fill in the form:
+2. Click **Add Bridge** under the `Bridge Configuration` section.
+3. Fill in the form:
 
-   - **Bridge Name**: `br0` (no spaces or special characters)
-   - **API URL**: `http://192.168.1.5:8000` (your SDN Launch Control server)
-   - **Ports**: Select ports connecting to access point
-   - **Controller**: Select `odl-controller-01`
+   - **API URL**: `http://10.10.10.10:8000` (your SDN Launch Control server)
+   - **Ports**: Select ports connecting to access point and back to your network. Refer back to the diagrams above.
+   - **Controller**: Select the controller we set up in the step before.
 
-5. Click **Submit**
+   ![Add Birdge form](/img/screenshots/configure-bridge-form.png)
 
-## Step 4: Verify Connection
+4. Click **Add Bridge**
 
-1. Navigate to **Switches** → Your switch
-2. Check **Bridge Status**: Should show "Connected"
-3. Check **Controller Status**: Should show "Active"
+The system will
 
-## Step 5: Monitor Traffic
+- Configure the OVS Bridge
+- Set up port and flow monitoring tools on the switch
 
-1. Navigate to **Network Monitoring**
-2. View real-time traffic classification
-3. Check device statistics
-4. View historical data
+## Conclusion
 
-## Troubleshooting
-
-**Bridge won't connect:**
-
-- Verify API URL is accessible from switch
-- Check firewall allows port 8000
-- Verify controller is running
-
-**No traffic data:**
-
-- Ensure bridge is connected
-- Check ports are correctly configured
-- Verify OpenFlow flows are being installed
+Once you have done this you will have a simple network set up. You should be able to connect to the access point and use the network.
 
 ## Next Steps
 
-- [Network Configuration](./network-configuration.md) - Advanced configuration
-- [Controller Setup](./controller-setup.md) - Detailed controller configuration
+- [Network Configuration](./advanced-network-configuration.md) - Advanced configuration

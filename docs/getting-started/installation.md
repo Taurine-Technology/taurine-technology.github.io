@@ -20,12 +20,12 @@ cd backend/control_center
 ### Step 3: Create Environment Configuration
 
 ```bash
-cp .env.example control_center/.env
+cp .env.example .env
 ```
 
 ### Step 4: Configure Environment Variables
 
-Edit `control_center/.env` with your configuration. See [Advanced Configuration](../guides/advanced-configuration.md#environment-variables) for detailed information.
+Edit `.env` with your configuration. See [Advanced Configuration](../guides/advanced-configuration.md#environment-variables) for detailed information.
 
 **Minimum required configuration:**
 

@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,6 +43,19 @@ jobs:
           if [[ "${{ github.ref }}" == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
             npm run docusaurus docs:version $VERSION
+          else
+            # Recreate existing versions from tags for main branch builds
+            # This ensures the version dropdown appears on the live site
+            CURRENT_COMMIT=$(git rev-parse HEAD)
+            for tag in $(git tag -l "v*" | sort -V); do
+              VERSION=$tag
+              echo "Creating version ${VERSION} from tag ${tag}"
+              git checkout $tag
+              npm ci
+              npm run docusaurus docs:version $VERSION
+              git checkout $CURRENT_COMMIT
+              npm ci
+            done
           fi
           npm run build
 

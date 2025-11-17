@@ -10,7 +10,7 @@ SDN Launch Control has been successfully tested on:
 - Ubuntu Server
 - Windows WSL (Windows Subsystem for Linux)
 
-## Required Software
+## Required Software on the Server
 
 ### Docker and Docker Compose
 
@@ -48,6 +48,10 @@ If you want to enable Telegram notifications:
 1. Create a Telegram bot using following the instructions [here](https://core.telegram.org/bots/tutorial)
 2. Obtain your bot API key
 3. Configure it in the backend `.env` file
+
+## Raspberry Pi Image
+
+If you are using a Raspberry Pi we recommend the Raspberry Pi 4b with 8GB of RAM and at least a 32GB SD Card. We also recommend you use our [Ubuntu image](https://github.com/Taurine-Technology/ubuntu-server-pi-images) to speed up installation.
 
 ## Next Steps
 

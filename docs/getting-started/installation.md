@@ -1,6 +1,6 @@
 # Installation
 
-This guide will walk you through installing SDN Launch Control on your server.
+This guide will walk you through installing SDN Launch Control on your server. Ensure you have read through the [pre-requisites](prerequisites.md).
 
 ## Backend Installation
 

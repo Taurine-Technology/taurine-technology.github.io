@@ -49,6 +49,12 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Versioning will be enabled automatically when tags are created
           // For now, docs are served at /docs/ without version prefix
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "Latest",
+            },
+          },
         },
         blog: false,
         theme: {

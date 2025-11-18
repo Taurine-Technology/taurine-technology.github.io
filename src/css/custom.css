@@ -88,5 +88,5 @@ details summary::before {
 }
 
 details summary:hover {
-  color: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-primary-light);
 }

@@ -5,23 +5,23 @@ This page aims to answer frequently asked questions and provide knowledge about 
 <details>
 <summary><strong>What do I need to run SDN Launch Control?</strong></summary>
 
-You a device to act as a switch (minimum 3 ethernet ports), a server to run Launch Control and a server to run the SDN controller (this can be the same server). They should all run Ubuntu Server 20 or 22. The server requires an x86-64 CPU architecture.
+You need a device to act as a switch (minimum 3 Ethernet ports), a server to run Launch Control and a server to run the SDN controller (this can be the same server). They should all run Ubuntu Server 20 or 22. The server requires an x86-64 CPU architecture.
 
 </details>
 
 <details>
-<summary><strong>Can I cloud host SDN Launch Control?</strong></summary>
+<summary><strong>Can I cloud-host SDN Launch Control?</strong></summary>
 
-Yes and no... If you want to cloud host the software and have a VPN tunnel / reverse proxy set up then there is no issue in doing this, **_HOWEVER_**, the switch needs to communicate with Launch Control and Launch Control needs to be able to communicate with the switch so they both need to be able to resolve the URL / IP address assigned to each other.
+Yes and no. If you want to cloud-host the software and have a VPN tunnel or reverse proxy set up so your switches and API can communicate, then there is no issue in doing this. **However**, the switch needs to communicate with Launch Control, and Launch Control needs to be able to communicate with the switch, so they both need to be able to resolve the URL or IP address assigned to each other.
 
-The **GOOD NEWS** is that we are building a cloud hosted solution that will allow you to have multiple networks all connected to a single Launch Control controller. _Stay tuned for more..._
+The **good news** is that we are building a cloud-hosted solution that will allow you to have multiple networks all connected to a single Launch Control instance. _Stay tuned for more..._
 
 </details>
 
 <details>
 <summary><strong>What is an SDN Controller?</strong></summary>
 
-An SDN controller is the "brain" of a Software-Defined Networking (SDN) architecture. It runs as software (often on commodity servers) and centrally manages the network by communicating with both the data plane (switches/routers) and applications and orchestration systems. This enables SDN Launch Control to DYNAMICALLY enforce QoS, program paths, manage queues and a lot more.
+An SDN controller is the "brain" of a Software-Defined Networking (SDN) architecture. It runs as software and centrally manages the network by communicating with both the data plane (switches/routers) and applications and orchestration systems. This enables SDN Launch Control to dynamically enforce QoS, program paths, manage queues, and more.
 
 </details>
 

@@ -73,13 +73,15 @@ export default function Home(): React.ReactElement {
             <div className="col col--4">
               <div className="card">
                 <div className="card__header">
-                  <Heading as="h3">Guides</Heading>
+                  <Heading as="h3">Documentation</Heading>
                 </div>
                 <div className="card__body">
                   <p>
-                    Detailed technical documentation and architecture guides.
+                    Detailed technical guides and architecture documentation.
                   </p>
-                  <Link to="/docs/guides/architecture">Read Guides →</Link>
+                  <Link to="/docs/documentation/architecture">
+                    Read Documentation →
+                  </Link>
                 </div>
               </div>
             </div>

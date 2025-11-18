@@ -17,7 +17,7 @@ SDN Launch Control provides:
 
 - [Installation Guide](./getting-started/installation.md) - Get started with installation
 - [Examples](./examples/basic-setup.md) - Step-by-step tutorials
-- [Architecture](./guides/architecture.md) - System architecture overview
+- [Architecture](./documentation/architecture.md) - System architecture overview
 
 ## Technology Stack
 

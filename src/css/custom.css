@@ -56,3 +56,37 @@
     var(--ifm-color-primary) 100%
   );
 }
+
+/* FAQ/Wiki dropdown styling */
+details {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
+}
+
+details:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+details[open] {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+details summary {
+  cursor: pointer;
+  color: var(--ifm-color-primary);
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::before {
+  color: var(--ifm-color-primary);
+}
+
+details summary:hover {
+  color: var(--ifm-color-primary-dark);
+}

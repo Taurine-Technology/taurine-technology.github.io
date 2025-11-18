@@ -25,7 +25,7 @@ cp .env.example .env
 
 ### Step 4: Configure Environment Variables
 
-Edit `.env` with your configuration. See [Advanced Configuration](../guides/advanced-configuration.md#environment-variables) for detailed information.
+Edit `.env` with your configuration.
 
 **Minimum required configuration:**
 

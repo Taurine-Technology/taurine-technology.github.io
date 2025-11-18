@@ -35,4 +35,3 @@ Once you have linked your account navigate to the notifications page from the si
 ## Next Steps
 
 - [Architecture Guide](../guides/architecture.md) - System architecture
-- [Advanced Configuration](../guides/advanced-configuration.md) - Advanced settings

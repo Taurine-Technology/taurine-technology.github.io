@@ -30,12 +30,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Guides",
-      items: [
-        "guides/architecture",
-        "guides/model-management",
-        "guides/advanced-configuration",
-      ],
+      label: "Documentation",
+      items: ["documentation/architecture", "documentation/wiki"],
     },
   ],
 };

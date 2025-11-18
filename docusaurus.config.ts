@@ -79,12 +79,12 @@ const config: Config = {
         src: "img/logo.png",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Documentation",
-        },
+        // {
+        //   type: "docSidebar",
+        //   sidebarId: "tutorialSidebar",
+        //   position: "left",
+        //   label: "Documentation",
+        // },
         {
           type: "docsVersionDropdown",
           position: "right",
@@ -111,8 +111,8 @@ const config: Config = {
               to: "/docs/examples/basic-setup",
             },
             {
-              label: "Guides",
-              to: "/docs/guides/architecture",
+              label: "Documentation",
+              to: "/docs/documentation/architecture",
             },
           ],
         },
@@ -139,7 +139,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Taurine Technology. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Taurine Technology.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,10 +1,8 @@
-# Installation
+# Development Environment
 
-This guide will walk you through installing SDN Launch Control on your server. Ensure you have read through the [pre-requisites](prerequisites.md).
+The development environment requires Docker, Docker Compose, Node and NPM to be installed on your system. This is not recommened for production environments.
 
-**_Are you a developer?_** Find out how to run the **development environment** [here](dev.md).
-
-## Backend Installation
+## Backend
 
 ### Step 1: Clone the Repository
 
@@ -45,25 +43,15 @@ Edit `.env` with your configuration.
 ### Step 5: Start Docker Containers
 
 ```bash
-docker compose up -d
+docker compose -f docker-compose.dev.yml up -d
 ```
 
 This will start:
 
 - PostgreSQL database with TimescaleDB
 - Redis for caching and message broker
-- Django backend API
+- Django backend API with a file system mount. This will allow you to ediit the files and have the container sync automatically.
 - Celery workers for background tasks
-
-### Step 6: Verify Backend Installation
-
-Check that the backend is running:
-
-```bash
-curl http://<SERVER_IP_ADDRESS>:8000/api/v1/
-```
-
-You should see a JSON response.
 
 ## Frontend Installation
 
@@ -88,39 +76,14 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1
 NEXT_PUBLIC_WS_OPENFLOW=ws://localhost:8000/ws/openflow_metrics/
 NEXT_PUBLIC_WS_DEVICESTATS=ws://localhost:8000/ws/device_stats/
 NEXT_PUBLIC_WS_CLASIFICATIONS=ws://localhost:8000/ws/flow_updates/
+ALLOWED_DEV_ORIGINS=localhost
 ```
 
 \*replace `localhost` with your server's IP address.
 
 ### Step 4: Install Dependencies and Start
 
-```bash
-./setup.sh
 ```
-
-This script will build the Docker container.
-
-### Step 5: Verify Frontend Installation
-
-Open your browser and navigate to `http://<YOUR_SERVER_IP>:3000` (replace `YOUR_SERVER_IP` with your server's IP address)
-
-## Access
-
-After installation, you can access:
-
-- **Frontend UI**: `http://<YOUR_SERVER_IP>:3000`
-- **Backend API**: `http://<YOUR_SERVER_IP>:8000/api/v1`
-- **Admin Interface**: `http://<YOUR_SERVER_IP>:8000/admin`
-- **API Documentation**: `http://<YOUR_SERVER_IP>:8000/api/docs`
-
-## Default Credentials
-
-If you did not change the default superuser credentials in the `.env` file then they are:
-
-- **Username**: `admin`
-- **Email**: `admin@example.com`
-- **Password**: `admin`
-
-## Next Steps
-
-- [Basic Setup Example](../examples/basic-setup.md) - Step-by-step setup example
+npm install
+npm run dev
+```
